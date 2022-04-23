@@ -6,7 +6,7 @@ class Map
 
     public function __construct()
     {
-        $this->valueMap = valueMapping();
+        $this->valueMap = self::valueMapping();
     }
 
     public function valueMapping() :array
