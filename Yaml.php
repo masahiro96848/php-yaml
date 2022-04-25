@@ -20,7 +20,11 @@ $yamlContents = [];
 
 foreach ($inputFileContents as $row) {
     $genreMap = fetchGenre($row, $valueMap->valueMap);
+    $nameMap = fetchName($row, $valueMap->valueMap);
+    $contentMap = fetchContent($row, $valueMap->valueMap);
     $yamlContents['body']['genre'] = $genreMap;
+    $yamlContents['body']['name'] = $nameMap;
+    $yamlContents['body']['content'] = $contentMap;
 }
 
 
@@ -50,7 +54,7 @@ function fetchName(array $row, array $valueMap)
 function fetchContent(array $row, array $valueMap)
 {
     $content = $row[$valueMap['content']];
-    if ($genre === '') {
+    if ($content === '') {
         return NULL;
     }
     return $content;
