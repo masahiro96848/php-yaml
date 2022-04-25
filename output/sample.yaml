@@ -1,1 +1,4 @@
-genre: 歌手
+body:
+    genre: 歌手
+    name: ado
+    content: 最近有名な歌手
