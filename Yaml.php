@@ -4,12 +4,12 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
 
-if (count($argv) <= 1) {
+if (count($argv) <= 1) {   # コマンドラインで引数があるかどうかの条件分岐
     echo '引数を指定してください';
     return;
 }
 
-$fileName = $argv[1];
+$fileName = $argv[1];  # csvのファイル名の引数
 $inputFilePath = './input/' . $fileName . '.csv';
 
 $inputFileContents = readCSV($inputFilePath);
@@ -19,13 +19,18 @@ $valueMap = new Map();
 $yamlContents = [];
 
 foreach ($inputFileContents as $row) {
+    // テーブル名
+    $tableName = $row[$valueMap->valueMap['table-name']];  # テーブルを取得する変数
     $genreMap = fetchGenre($row, $valueMap->valueMap);
     $nameMap = fetchName($row, $valueMap->valueMap);
     $contentMap = fetchContent($row, $valueMap->valueMap);
-    $yamlContents['body']['genre'] = $genreMap;
-    $yamlContents['body']['name'] = $nameMap;
-    $yamlContents['body']['content'] = $contentMap;
+    $yamlContents['body'][$tableName]['genre'] = $genreMap;
+    $yamlContents['body'][$tableName]['name'] = $nameMap;
+    $yamlContents['body'][$tableName]['content'] = $contentMap;
+
+    var_dump($tableName);
 }
+
 
 
 
