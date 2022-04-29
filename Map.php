@@ -12,11 +12,13 @@ class Map
     public function valueMapping() :array
     {
         return [
-            //　ジャンル
+            # テーブル名
+            'table-name' => 0,
+            # ジャンル
             'genre' => 1,
-            // 名前
+            # 名前
             'name' => 2,
-            // 内容
+            # 内容
             'content' => 3
         ];
     }

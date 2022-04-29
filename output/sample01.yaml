@@ -1,0 +1,13 @@
+body:
+    テーブル1:
+        genre: 映画
+        name: 洋画
+        content: トランスポーター
+    テーブル2:
+        genre: プログラミング
+        name: 'php, ruby'
+        content: 最新は8.1
+    テーブル3:
+        genre: スポーツ
+        name: サッカー
+        content: null
