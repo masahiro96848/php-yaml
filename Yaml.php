@@ -28,6 +28,7 @@ foreach ($inputFileContents as $row) {  # 読み込んだCSVをforeachで回し�
     $yamlContents['body'][$tableName]['content'] = $contentMap;
 
 }
+var_dump($yamlContents);
 
 // 配列をyamlに変換する処理
 file_put_contents('./output/' . $fileName . '.yaml', Yaml::dump($yamlContents, 4));
@@ -49,7 +50,7 @@ function fetchName(array $row, array $valueMap)
     if ($name === '') {
         return NULL;
     }
-    return $name;
+    return explode(',', $name);
 }
 function fetchContent(array $row, array $valueMap)
 {
