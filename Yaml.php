@@ -14,12 +14,11 @@ $inputFilePath = './input/' . $fileName . '.csv';
 
 $inputFileContents = readCSV($inputFilePath);
 
-$valueMap = new Map();
+$valueMap = new Map(); # Mapをインスタンス化
 
-$yamlContents = [];
+$yamlContents = []; # $yamlContentsの変数に配列を格納
 
-foreach ($inputFileContents as $row) {
-    // テーブル名
+foreach ($inputFileContents as $row) {  # 読み込んだCSVをforeachで回して取得
     $tableName = $row[$valueMap->valueMap['table-name']];  # テーブルを取得する変数
     $genreMap = fetchGenre($row, $valueMap->valueMap);
     $nameMap = fetchName($row, $valueMap->valueMap);
@@ -28,13 +27,9 @@ foreach ($inputFileContents as $row) {
     $yamlContents['body'][$tableName]['name'] = $nameMap;
     $yamlContents['body'][$tableName]['content'] = $contentMap;
 
-    var_dump($tableName);
 }
 
-
-
-
-// yamlに変換する処理
+// 配列をyamlに変換する処理
 file_put_contents('./output/' . $fileName . '.yaml', Yaml::dump($yamlContents, 4));
 
 

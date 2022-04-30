@@ -11,6 +11,7 @@ class Map
 
     public function valueMapping() :array
     {
+        # ここでは取得する列だけをここに書き込む
         return [
             # テーブル名
             'table-name' => 0,
