@@ -5,9 +5,9 @@ body:
         content: トランスポーター
     テーブル2:
         genre: プログラミング
-        name: 'php, ruby'
+        name: php
         content: 最新は8.1
     テーブル3:
         genre: スポーツ
         name: サッカー
-        content: null
+        content: 11人でする競技
